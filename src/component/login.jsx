@@ -1,9 +1,8 @@
 import axios from 'axios';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, useContext } from 'react';
 import { useHistory } from 'react-router';
 import styled from "styled-components";
 import Swal from 'sweetalert2';
-
 
 const LoginForm = (props) => {
     const [email, setEmail] = useState('')
@@ -42,7 +41,7 @@ const LoginForm = (props) => {
         setPassword(event.target.value)
     }, []);
 
-    const onSubmitForm = useCallback((event) => {
+    const onSubmitForm = useCallback(async (event) => {
         if (email === "" || password === "") {
             Swal.fire({
                 text: `이메일과 비밀번호를 모두 입력해주세요!`,
@@ -51,8 +50,20 @@ const LoginForm = (props) => {
                 confirmButtonText: "확인",
             })
         }
-        event.preventDefault()
-        console.log(email,password)
+        else {
+            await axios.post('https://localhost:4000/users/signIn', {
+                email : email,
+                password: password
+            }, {
+                "Content-Type": "application/json"
+            }, {
+                withCredentials: true
+            })
+            .then((res) => {
+                props.handleLogin(res.data);
+            })
+        }
+        event.preventDefault();
     }, [email, password])
 
     return (

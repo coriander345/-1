@@ -1,9 +1,9 @@
-import React,{createContext, useContext, useState} from 'react'
+import React, {createContext, useContext, useState} from 'react'
 
-export const AuthContext = createContext()
+export const AuthContext = createContext(false);
 
 export const AuthContextProvider = (props) => {
-    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     return (
         <div>

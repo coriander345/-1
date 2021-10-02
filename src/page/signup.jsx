@@ -1,15 +1,15 @@
 import React from 'react';
-import styled  from 'styled-components';
+import styled from 'styled-components';
+
+import SignupComponent from '../component/signupComponent';
+
 const Signup = (props) => {
 
     return (
         <Form>
-            signup
+            <SignupComponent></SignupComponent>
         </Form>
     )    
-
-
-
 };
 
 const Form = styled.div`
