@@ -1,18 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './app';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-import { AuthContextProvider } from "./Context/authContext";
-import { UserContextProvider } from "./Context/userContext";
-
+import App from './app'
+import { AuthContextProvider } from './Context/authContext'
+import { UserContextProvider } from './Context/userContext'
+import { SearchValueContextProvider } from './Context/searchValueContext'
+import { AccessTokenContextProvider } from './Context/accessTokenContext'
 
 ReactDOM.render(
-  
-    <UserContextProvider>
-      <AuthContextProvider>
-        <App />
-      </AuthContextProvider>
-    </UserContextProvider>,
+  <AuthContextProvider>
+    <AccessTokenContextProvider>
+      <UserContextProvider>
+        <SearchValueContextProvider>
+          <App />
+        </SearchValueContextProvider>
+      </UserContextProvider>
+    </AccessTokenContextProvider>
+  </AuthContextProvider>,
   document.getElementById('root')
 );
 
