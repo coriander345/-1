@@ -1,22 +1,13 @@
-import React from 'react';
-import styled  from 'styled-components';
-const Signup = (props) => {
 
-    return (
-        <Form>
-            signup
-        </Form>
-    )    
+import React from 'react'
 
+import SignupComponent from '../component/signupComponent'
 
+const Signup = () => {
 
-};
+	return (
+    <SignupComponent />
+  )
+}
 
-const Form = styled.div`
-    padding-top: 60px;
-    margin-bottom: 180px;
-    display: flex;
-    flex-direction: column;
-    
-`
-export default Signup;
+export default Signup

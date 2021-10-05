@@ -1,14 +1,25 @@
 body {
   margin: 0px;
-  overflow-x:hidden;
+  overflow-x: hidden;
 }
 
 nav {
   background-color:rgb(243, 200, 18);
-  display: flex;
   align-items: center;
   margin: 0px;
   height: 40px;
+}
+
+.beforeLoginView {
+  display: flex;
+  justify-content: space-between;
+}
+
+.afterLoginView {
+  display: flex;
+  width: 50;
+  justify-content: space-between;
+
 }
 
 .nav-links {
@@ -23,18 +34,27 @@ nav {
 
 }
 
-button {
+.testbtn {
   border: solid, 1px, gray;
   text-decoration: none;
-  background-color: transparent;
-  border-color: rgb(243, 200, 18);
+  background-color: rgb(255, 120, 47);
+  height: 25px;
+  margin-top: 8px;
   color: white;
-
+  border: 1px solid transparent;
   padding: 5px 12px;
 }
 
+.testbtn:hover {
+  cursor: pointer;
+}
+
+div .link {
+  cursor: pointer;
+}
+
 .link {
-  text-align:end;
+  text-align: end;
   margin: 10px;
   font-size: 18px;
   text-decoration: none;
@@ -48,7 +68,7 @@ button {
 
 .active {
   color: white;
-  width: 85%;
   margin-left: 1rem;
   align-items: center;
 }
+
