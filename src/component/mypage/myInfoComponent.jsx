@@ -4,27 +4,20 @@ import axios from 'axios'
 
 import { UserContext } from '../../Context/userContext'
 
-const MyInfoComponent = (props) => {
+const MyInfoComponent = () => {
 
   const { userInfo, setUserInfo } = useContext(UserContext)
-
   // const getUserInfo = async () => {
-  //   await axios.get('https://localhost:4000/users/:id', {
-  //     headers: {
-  //       Authorization: `Bearer ${}`,
-  //       'Content-Type': 'application/json'
-  //     },
+  //   await axios.get(`https://localhost:4000/users/${}`, {
   //     withCredentials: true
   //   })
   //   .then((res) => {
-  //     if (res.data.message !== 'ok'){
-  //       const message = 'accessToken 만료'
-  //       return
-  //     }
-  //     const { id, email, name, description, createdAt } = res.data.data.userData;
+  //     console.log('res : ', res)
+  //     const { id, email, name, description, createdAt } = res.data.data.userData
   //     setUserInfo({ id, email, name, description, createdAt })
   //   })
   // }
+
   return (
     <Contents>
       <Title>나의 정보</Title>

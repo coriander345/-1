@@ -2,9 +2,9 @@ import React from 'react'
 
 import MenuComponent from '../component/menuComponent'
 
-const Mypage = () => {
+const Mypage = ({ userInfo }) => {
   return (
-    <MenuComponent />
+    <MenuComponent userInfo={userInfo} />
   )
 };
 

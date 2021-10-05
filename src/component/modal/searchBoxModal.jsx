@@ -1,4 +1,4 @@
-import React, { useRef, useContext, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 // import { FaSearch } from 'react-icons/fa'
@@ -6,58 +6,57 @@ import styled from 'styled-components'
 import { SearchValueContext } from '../../Context/searchValueContext'
 import { AuthContext } from '../../Context/authContext'
 
-const SearchBoxModal = ({ showSearchBox, setShowSearchBox }) => {
+const SearchBoxModal = ({showSearchBox,setShowSearchBox}) => {
   
   const history = useHistory()
   const {isLoggedIn, setIsLoggedIn} = useContext(AuthContext)
   const {isValue, setIsValue} = useContext(SearchValueContext)
-  const [inputValue, setInputValue] = useState("")
+  const [inputValue, setInputValue] = useState('')
   
-    const SearchRedirect = (e) => {
-        if(e.type === 'click') {
-          history.push('/search:id')
-            setShowSearchBox(false)
-            setIsValue(inputValue)
-            setInputValue('')
-            return
-        }
-
-        if (e.key === 'Enter') {
-            history.push('/search:id')
-            setShowSearchBox(false)
-            setIsValue(inputValue)
-            e.target.value=''
-        }
-        setInputValue(e.target.value)
+  const SearchRedirect = (e) => {
+    if(e.type === 'click') {
+      setShowSearchBox(false)     
+      history.push(`/search/${inputValue}`)
+      setIsValue(inputValue)
+      setInputValue('')
+      return 
     }
-    
-    return (
-      <>
-        <Wrapper onSubmit={SearchRedirect}>
-          <div className={showSearchBox ? 'Background' : null} onClick={()=> setShowSearchBox(false)}></div>
-          <div className={showSearchBox ? 'opened' : 'modal'} aria-hidden='true'>
-            <div className='modal-dialog'>
-              <button onClick={()=> setShowSearchBox(false)} href='#' className='btn-close closemodale' aria-hidden='true'>&times;</button>
-                      
-              <div className='modal-body'>
-              <input type='text' 
-                placeholder='검색'
-                name='u'
-                size='20'
+
+    if (e.key === 'Enter') {
+      setShowSearchBox(false)
+      history.push(`/search/${inputValue}`)
+      setIsValue(inputValue)
+      setInputValue('')
+    }
+  }
+  
+  return (
+    <>
+      <Wrapper onSubmit={SearchRedirect}>
+        <div className={showSearchBox?"Background":null} onClick={()=> setShowSearchBox(false)}></div>
+        <div className={showSearchBox? "opened" : "modal"} aria-hidden="true">
+          <div className="modal-dialog">
+            <button onClick={()=> setShowSearchBox(false)} href="#" className="btn-close closemodale" aria-hidden="true">times;</button>
+                    
+            <div className="modal-body">
+              <input 
+                type="text" 
+                placeholder="검색"
+                name="u" 
+                size="20"
                 value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-                onKeyPress={(e) => SearchRedirect(e)} 
-              /> 
-              {/* <FaSearch type="submit" onClick={(e)=>SearchRedirect(e)}></FaSearch><br /> */}
-            
-              </div>
+                onChange={(e)=>setInputValue(e.target.value)}
+                onKeyPress={(e)=>SearchRedirect(e)} 
+              />     
+              {/* <FaSearch type="submit" onClick={SearchRedirect}/> */}
+              <br />
             </div>
           </div>
-        </Wrapper>
+        </div>
+      </Wrapper>
     </>
   )
 } 
-
 
 const Wrapper = styled.div`
   .Background{
@@ -130,6 +129,5 @@ const Wrapper = styled.div`
     border-top:0px; 
   }
 `
-
 
 export default SearchBoxModal

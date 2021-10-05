@@ -92,7 +92,7 @@ const WriteComponent = () => {
             contentImgs,
             ingredients
         }, {
-            headers: { 'Content-Type' : 'application/json'}
+            'Content-Type' : 'application/json'
         })
     }, [userId, title, introduction, category, requiredTime, content1, content2, mainImg, contentImg1, contentImg2, ingredients1, ingredients2, amount1, amount2]);
 

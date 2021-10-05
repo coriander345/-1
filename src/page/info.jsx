@@ -5,7 +5,7 @@ import Post from './posts'
 
 const Info = () => {
 
-  const postId = 1;
+  const postId = 2;
 
   return (
     <>
