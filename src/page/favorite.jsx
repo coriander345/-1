@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
 const Favorite = (props) => (
-            <h1>Favorite</h1>
-    );
+  <h1>Favorite</h1>
+)
 
-export default Favorite;
+export default Favorite

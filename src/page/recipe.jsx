@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Main = () => {
-    return (
-        <div>
-            Hi
-        </div>
-    )
+import GetImagesComponent from '../component/getImagesComponent'
+
+const Recipe = () => {
+
+  return <GetImagesComponent />
+	
 }
 
-export default Main
+export default Recipe

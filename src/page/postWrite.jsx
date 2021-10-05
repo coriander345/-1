@@ -1,7 +1,11 @@
-import React from 'react';
+import React from 'react'
 
-const PostWrite = (props) => (
-            <h1>PostWrite</h1>
-    );
+import WriteComponent from '../component/writeComponent'
 
-export default PostWrite;
+const PostWrite = () => (
+
+  <WriteComponent></WriteComponent>
+
+);
+
+export default PostWrite
