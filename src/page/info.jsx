@@ -4,19 +4,11 @@ import { BrowserRouter as Router, Route, Switch, NavLink } from 'react-router-do
 import Post from './posts'
 
 const Info = () => {
-
-  const postId = 2;
-
   return (
-    <>
-      <Router>
-        <NavLink to={`/posts`}>포스트로</NavLink>
-        <Switch>
-          <Route exact path='/post/:id' render={() => <Post postId={postId}/>} />
-        </Switch>
-      </Router>
-      
-    </>
+    <div>
+      <h1>Home</h1>
+      안녕하세요. 여기는 "식사합시다."? 입니다.
+    </div>
   )
 }
 

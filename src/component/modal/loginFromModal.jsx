@@ -1,17 +1,16 @@
 import axios from 'axios'
-import React, { useCallback, useState } from 'react'
+import React, { useState } from 'react'
 import { useHistory } from 'react-router'
-
 import styled from 'styled-components'
 import Swal from 'sweetalert2'
-
-
+import { FaRegTimesCircle } from 'react-icons/fa'
 const LoginFormModal = ({ handleLogin, openLogin, setOpenLogin }) => {
-
   const history = useHistory()
+
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   // const [openLogin, setOpenLogin] = useState(false);
+
   // const { Kakao } = window;
   // function test () {
   //     Kakao.Auth.login({
@@ -24,6 +23,7 @@ const LoginFormModal = ({ handleLogin, openLogin, setOpenLogin }) => {
   //         }
   //     })
   // }
+
   const logIn = async (event) => {
     if (email === '' || password === '') {
       Swal.fire({
@@ -33,46 +33,52 @@ const LoginFormModal = ({ handleLogin, openLogin, setOpenLogin }) => {
         confirmButtonText: '확인',
       })
     } else {
-			await axios.post('https://localhost:4000/users/signIn', {
-				email: email,
-				password: password
-			}, {
-				'Content-Type': 'application/json'
-			}, {
-				withCredentials: true
-			})
-			.then((res) => {
-				handleLogin(res.data)
-			})
-		}
+      await axios
+        .post(
+          'https://localhost:4000/users/signIn',
+          {
+            email: email,
+            password: password,
+          },
+          {
+            'Content-Type': 'application/json',
+          },
+          {
+            withCredentials: true,
+          }
+        )
+        .then((res) => {
+          handleLogin(res.data)
+        })
+    }
     event.preventDefault()
-    // console.log(email,password)
   }
+
   return openLogin ? (
     <Modal>
       <Left onClick={() => setOpenLogin(false)}></Left>
-      <Form >
+      <Form>
         <LoginWrapper>
           <Login>Login</Login>
           <LoginC>
             <InputC>
-              <Input 
-                type='text'
-                placeholder='이메일을 입력해주세요'
-                value={email} 
-                onChange={(event)=> {
+              <Input
+                type="text"
+                placeholder="이메일을 입력해주세요"
+                value={email}
+                onChange={(event) => {
                   setEmail(event.target.value)
-                }} 
+                }}
               />
             </InputC>
             <InputC>
-              <Input 
-                type='password'
-                placeholder='비밀번호를 입력해주세요'
-                value={password} 
-                onChange={(event)=> {
-                  setPassword(event.target.value) 
-                }} 
+              <Input
+                type="password"
+                placeholder="비밀번호를 입력해주세요"
+                value={password}
+                onChange={(event) => {
+                  setPassword(event.target.value)
+                }}
                 onKeyPress={(event) => {
                   if (event.key === 'Enter') {
                     logIn(event)
@@ -80,32 +86,33 @@ const LoginFormModal = ({ handleLogin, openLogin, setOpenLogin }) => {
                 }}
               />
             </InputC>
-            <LoginBtn onClick={logIn}>
-							Login
-            </LoginBtn>
+
+            <LoginBtn onClick={logIn}>Login</LoginBtn>
             <SignUpBtn onClick={() => setOpenLogin(false)}>
               <p>회원가입을 원하시나요?</p>
               <div
-								className='makeaccount'
-								onClick={() => {
-									history.push('/signup');
-								}}
+                className="makeaccount"
+                onClick={() => {
+                  history.push('/signup')
+                }}
               >
                 Sign Up
               </div>
             </SignUpBtn>
-            <SocialLoginBtn >
-              kakao
-            </SocialLoginBtn>
+            <SocialLoginBtn>kakao</SocialLoginBtn>
+            <CancelBtn onClick={() => setOpenLogin(false)}>
+              <FaRegTimesCircle />
+            </CancelBtn>
           </LoginC>
         </LoginWrapper>
       </Form>
       <Right onClick={() => setOpenLogin(false)}></Right>
     </Modal>
-  ) : null;
-};
+  ) : null
+}
 
 const Modal = styled.div`
+  z-index: 999;
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -115,7 +122,7 @@ const Modal = styled.div`
   display: flex;
 `
 const Left = styled.div`
-  width: 35%;    
+  width: 35%;
 `
 const Right = styled.div`
   width: 35%;
@@ -156,9 +163,10 @@ const Input = styled.input`
   width: 200px;
   height: 15px;
   align-items: center;
-  padding: 15px 50px 10px 10px;  
+  padding: 15px 50px 10px 10px;
   border-radius: 8px;
-  border: 2px solid  #d2d2d2;
+  border: 2px solid #d2d2d2;
+
   :focus {
     border: 2px solid rgb(243, 200, 18);
     outline: none;
@@ -180,6 +188,7 @@ const LoginBtn = styled.div`
   height: 15px;
   border-radius: 15px;
   color: white;
+
   :hover {
     font-weight: bold;
     background-color: rgb(243, 200, 18);
@@ -195,6 +204,7 @@ const SocialLoginBtn = styled.div`
   height: 15px;
   border-radius: 15px;
   color: white;
+
   :hover {
     font-weight: bold;
     /* background-color:rgb(243, 200, 18); */
@@ -217,6 +227,15 @@ const SignUpBtn = styled.div`
     :hover {
       font-weight: bold;
     }
+  }
+`
+
+const CancelBtn = styled.div`
+  margin-top: 25px;
+  color: #b8b8b8;
+  font-size: 20px;
+  :hover {
+    color: rgb(237, 199, 32);
   }
 `
 

@@ -1,48 +1,45 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const ImageComponent = ({ url, key, isMouseOn }) => {
-    
+const ImageComponent = ({ url }) => {
   return (
     <>
-      {isMouseOn ? (
-        <BackImg 
-          key={key}
-          className='drakness' 
-          style={{'backgroundImage':`url(${url})`}}><span>레시피정보</span>
-        </BackImg>) : (
-        <Img 
-					key={key}
-					className='drakness'
-					style={{'backgroundImage':`url(${url})`}}>
-        </Img>)
-      }
+    <Background className='back'>hi</Background>
+      <BackImg
+        style={{ backgroundImage: `url(${url})` }}
+      ></BackImg>
     </>
   )
 }
 
-const Img = styled.div`
-  width: 100%;
-  height: 100%;
-  border-radius: 15%;
-  object-fit: cover;
-  border: solid 0.4mm #a89f9f;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-`
-
 const BackImg = styled.div`
-  width: 100%;
-  height: 100%;
+  width: 268px;
+    height: 301px;
   border-radius: 15%;
   object-fit: cover;
-  /* border: solid 0.4mm #a89f9f; */
   background-size: 100% 100%;
-  transition: all .6s linear;
+  transition: all 0.6s linear;
   background-repeat: no-repeat;
-  opacity: 0.7;
+  opacity: 1;
   display: flex;
   justify-content: center;
   align-items: center;
 `
+
+const Background = styled.div`
+  position:absolute;
+    
+    width: 268px;
+    height: 301px;
+    background: #aeb4b696;
+    border-radius: 15%;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.3s linear;
+
+    :hover {
+      opacity: 1;
+    }
+`
 export default ImageComponent
+

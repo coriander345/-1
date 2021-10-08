@@ -1,29 +1,16 @@
 import React from 'react'
-import styled from 'styled-components'
+import GetImagesComponent from '../getImagesComponent'
+import {Contents, TitleWrap, Title} from '../editMyInfo/editMyInfoCss/editMyInfoCss'
 
 const MyFavorteComponent = (props) => {
 
+
   return (
     <Contents>
-      <Title>즐겨찾기</Title>
+      <TitleWrap><Title>즐겨찾기</Title></TitleWrap>
+      <GetImagesComponent />
     </Contents>
   )
 }
 
-const Contents = styled.div`
-  flex-direction : column;
-  margin : 0;
-  padding : 0;
-`
-
-const Title = styled.div`
-  align-items : center;
-  text-align: center;
-  border: solid 1px;
-  margin : 5px 300px;
-  font-size : 20px;
-  border-radius: 15px;
-  height : 30px;
-  padding-top : 6px;
-`
-export default MyFavorteComponent
+export default MyFavorteComponent;

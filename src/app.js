@@ -4,7 +4,7 @@ import React, { useState, useContext } from 'react'
 import './app.css'
 import Info from './page/info'
 import Recipe from './page/recipe'
-import PostWrite from './page/postWrite'
+import Write from './page/write'
 import Mypage from './page/mypage'
 import Signup from './page/signup'
 import Search from './page/search'
@@ -12,6 +12,7 @@ import { AuthContext } from './Context/authContext'
 import { UserContext } from './Context/userContext'
 import { AccessTokenContext } from './Context/accessTokenContext'
 import NavbarComponent from './component/navbarComponent'
+import FooterComponent from './component/footerComponent';
 import Posts from './page/posts'
 
 function App() {
@@ -29,7 +30,7 @@ function App() {
   const handleLogin = (info) => {
     isAuthenticated(info)
   }
-  
+
   const handleLogout = () => {
     setIsLoggedIn(false)
     setUserInfo({})
@@ -38,18 +39,23 @@ function App() {
   return (
     <div>
       <Router>
-        <NavbarComponent handleLogin={handleLogin} handleLogout={handleLogout} />
+        <NavbarComponent
+          handleLogin={handleLogin}
+          handleLogout={handleLogout}
+        />
         <Switch>
           <Route exact path='/' component={Info} />
           <Route exact path='/signup' component={Signup} />
           <Route exact path='/mypage/:id' render={() => <Mypage userInfo={userInfo} />} />
-          <Route exact path='/postwrite' component={PostWrite} />
-          <Route exact path='/posts' component={Posts} />
+          <Route exact path='/write' component={Write} />
+          <Route exact path='/recipe' component={Recipe} />
           <Route exact path='/search/:id' component={Search}/>
+          <Route exact path='/posts' component={Posts}/>
         </Switch>
       </Router>
+      <FooterComponent />
     </div>
-  );
+  )
 }
 
 export default App

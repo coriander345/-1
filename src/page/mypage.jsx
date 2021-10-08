@@ -1,10 +1,10 @@
 import React from 'react'
 
-import MenuComponent from '../component/menuComponent'
+import SideMenuComponent from '../component/sideMenuComponent'
 
 const Mypage = ({ userInfo }) => {
   return (
-    <MenuComponent userInfo={userInfo} />
+    <SideMenuComponent userInfo={userInfo} />
   )
 };
 
