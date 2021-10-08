@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect, useCallback } from 'react'
 import axios from 'axios'
 
 import { UserContext } from '../Context/userContext'
+import styled from 'styled-components'
 
 const Posts = ({ postId }) => {
   const { userInfo, setUserInfo } = useContext(UserContext)
@@ -176,59 +177,42 @@ const Posts = ({ postId }) => {
   }
 
   return (
-    <div>
-      <button onClick={addFavorite}>즐겨찾기 등록</button>
-      <button onClick={deleteFavorite}>즐겨찾기 제거</button>
-      <div></div>
-      <br />
-      <br />
-      <input type="text" placeholder="제목" value={title} onChange={onChangeTitle} />
-      <br/>
-      <input type="text" placeholder="설명" value={introduction} onChange={onChangeIntroduction} />
-      <br/>
-      <input type="text" placeholder="카테고리" value={category} onChange={onChangeCategory} />
-      <br/>
-      <input type="text" placeholder="소요시간" value={requiredTime} onChange={onChangeRequiredTime} />
-      <br/>
-      <input type="text" placeholder="콘텐트1" value={content1} onChange={onChangeContent1} />
-      <br/>
-      <input type="text" placeholder="콘텐트2" value={content2} onChange={onChangeContent2} />
-      <br/>
-      <input type="text" placeholder="메인사진" value={mainImg} onChange={onChangeMainImg} />
-      <br/>
-      <input type="text" placeholder="사진1" value={contentImg1} onChange={onChangeContentImg1} />
-      <br/>
-      <input type="text" placeholder="사진2" value={contentImg2} onChange={onChangeContentImg2} />
-      <br/>
-      <input type="text" placeholder="재료1" value={ingredients1} onChange={onChangeIngredients1} />
-      <br/>
-      <input type="text" placeholder="양1" value={amount1} onChange={onChangeAmount1} />
-      <br/>
-      <input type="text" placeholder="재료2" value={ingredients2} onChange={onChangeIngredients2} />
-      <br/>
-      <input type="text" placeholder="양2" value={amount2} onChange={onChangeAmount2} />
-      <br/>
-      <button onClick={updatePost}>게시글 수정</button>
-      <button onClick={deletePost}>게시글 삭제</button>
-
-      <br />
-      <br />
-      <input type="text" placeholder="맛별점" value={tasteScore} onChange={onChangeTasteScore} />
-      <button onClick={evaluateTaste}>맛별점 주기</button>
-      <br/>
-      <input type="text" placeholder="간편성별점" value={easyScore} onChange={onChangeEasyScore} />
-      <button onClick={evaluateEasy}>간편성별점 주기</button>
-      <br/>
-      <br/>
-
-      <input type="text" placeholder="댓글" value={comment} onChange={onChangeComment} />
-      <button onClick={writeComment}>댓글 달기</button>
-      <button onClick={updateComment}>댓글 수정</button>
-      <button onClick={deleteComment}>댓글 삭제</button>
-
-      
-    </div>
+    <Container>
+      <Header >hi</Header >
+      <div className='grid-item grid-item-2'>grid2</div>
+      <div className='grid-item grid-item-3'>grid3</div>
+      <div className='grid-item grid-item-4'>grid4</div>
+      <div className='grid-item grid-item-5'>grid5</div>
+      <div className='grid-item grid-item-6'>grid6</div>
+      <div className='grid-item grid-item-7'>grid7</div>
+      <div className='grid-item grid-item-8'>grid8</div>
+    </Container>
   )
 }
 
 export default Posts
+
+const Container = styled.div`
+  display: grid;
+  grid-template-columns: 200px 250px;
+  grid-auto-rows: minmax(150px, auto);
+  grid-gap: 20px; 
+  justify-content: stretch;
+  align-items: stretch;
+  
+  .grid-item {
+    background-color: #494985;
+  }
+  .grid-item-2 {
+    grid-row: span 2;
+  }
+  .grid-item-3 {
+    grid-row: span ;
+  
+  }
+`
+const Header = styled.div`
+  align-self: start;
+  justify-self: center;
+  background-color: #494985;
+`

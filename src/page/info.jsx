@@ -10,7 +10,7 @@ const Info = () => {
   return (
     <>
       <Router>
-        <NavLink to={`/post/${postId}`}>포스트로</NavLink>
+        <NavLink to={`/posts`}>포스트로</NavLink>
         <Switch>
           <Route exact path='/post/:id' render={() => <Post postId={postId}/>} />
         </Switch>

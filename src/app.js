@@ -12,6 +12,7 @@ import { AuthContext } from './Context/authContext'
 import { UserContext } from './Context/userContext'
 import { AccessTokenContext } from './Context/accessTokenContext'
 import NavbarComponent from './component/navbarComponent'
+import Posts from './page/posts'
 
 function App() {
   const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext)
@@ -43,7 +44,7 @@ function App() {
           <Route exact path='/signup' component={Signup} />
           <Route exact path='/mypage/:id' render={() => <Mypage userInfo={userInfo} />} />
           <Route exact path='/postwrite' component={PostWrite} />
-          <Route exact path='/recipe' component={Recipe} />
+          <Route exact path='/posts' component={Posts} />
           <Route exact path='/search/:id' component={Search}/>
         </Switch>
       </Router>

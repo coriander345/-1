@@ -36,7 +36,7 @@ const SearchBoxModal = ({showSearchBox,setShowSearchBox}) => {
         <div className={showSearchBox?"Background":null} onClick={()=> setShowSearchBox(false)}></div>
         <div className={showSearchBox? "opened" : "modal"} aria-hidden="true">
           <div className="modal-dialog">
-            <button onClick={()=> setShowSearchBox(false)} href="#" className="btn-close closemodale" aria-hidden="true">times;</button>
+            <button onClick={()=> setShowSearchBox(false)} aria-hidden="true">&times;</button>
                     
             <div className="modal-body">
               <input 
