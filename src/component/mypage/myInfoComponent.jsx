@@ -10,8 +10,7 @@ import {
   ReviseBtn,
   ReviseText,
 } from '../editMyInfo/editMyInfoCss/editMyInfoCss'
-
-import { FaMarker, FaKey } from 'react-icons/fa'
+import { FaMarker, FaKey, FaCog } from 'react-icons/fa'
 import axios from 'axios'
 import { UserContext } from '../../Context/userContext'
 import PasswordModal from '../modal/passwordModal'
@@ -48,7 +47,7 @@ const MyInfoComponent = () => {
         <Title onClick={changeInfo}>나의 정보</Title>
       </TitleWrap>
       <Info>
-        <Profile></Profile>
+        {/* <Profile></Profile> */}
         {(() => {
           switch (page) {
             case 'showInfo':
@@ -63,9 +62,9 @@ const MyInfoComponent = () => {
         <BtnWrap>
           <ReviseForm>
             <ReviseBtn>
-              <FaMarker onClick={changeEdit} />
+              <ReviseText className="fixed">사용자정보 수정</ReviseText>
+              <FaCog onClick={changeEdit} />
             </ReviseBtn>
-            <ReviseText className="fixed">사용자정보 수정</ReviseText>
           </ReviseForm>
           <ReviseForm>
             <ReviseBtn>

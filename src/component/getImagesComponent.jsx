@@ -6,12 +6,21 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 import ImageComponent from './imageComponent'
 import LoadingComponent from './loadingComponent'
 
-function GetImagesComponent ({ isValue }) {
+function GetImagesComponent ({ isValue, selectCategory  }) {
 
   const [images, setImages] = useState([])
   const [pageNumber, setPageNumber] = useState(1)
   const [isMouseOn, setIsMouseOn] = useState(false)
- 
+
+  // 받아온 selectCategory(korean)을 통해서
+  // axios 요청으로 카테고리를 전송 
+  // const categoryFilter = () => {
+  //   axios.get(`https://localhost:4000/recipe/:${selectCategory}`)
+  //   .then(res => {
+  //   })
+  // }
+
+
   //   &page=${pageNumber}&per_page=10
   const fetchImages = () => {
     axios.get(`https://api.unsplash.com/photos/random?client_id=dllapZyq7HTMkM11dE1uhoBRzwWNupievUHo1BM2Nq8&count=10`)

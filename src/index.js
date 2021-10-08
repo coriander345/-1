@@ -12,7 +12,7 @@ ReactDOM.render(
     <AccessTokenContextProvider>
       <UserContextProvider>
         <SearchValueContextProvider>
-          <App />
+            <App />
         </SearchValueContextProvider>
       </UserContextProvider>
     </AccessTokenContextProvider>

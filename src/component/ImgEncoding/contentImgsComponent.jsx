@@ -31,7 +31,7 @@ const ContentImgsComponent = ({ contentImgs, setContentImgs }) => {
     updatedList.splice(contentImgs.indexOf(img), 1)
     setContentImgs(updatedList)
     const updatedUrl = [...imgUrl]
-    updatedLUrl.splice(index, 1)
+    updatedUrl.splice(index, 1)
     setImgUrl(updatedUrl)
     console.log(img)
   }

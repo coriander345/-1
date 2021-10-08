@@ -105,7 +105,7 @@ const SignupComponent = () => {
     event.preventDefault()
     // console.log(email, password, nickname, description)
     // 마지막으로 axios로 데이터를 넘겨준다.
-
+ 
     await axios
       .post(
         'https://localhost:4000/users/signUp',

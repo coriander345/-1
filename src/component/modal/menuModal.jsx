@@ -60,7 +60,7 @@ const Form = styled.div`
   flex-direction: column;
   align-items: center;
   position: relative;
-  animation: menu 1s ease-in;
+  animation: menu 5s ease-in;
   animation-fill-mode: forwards;
   @keyframes menu {
     from {

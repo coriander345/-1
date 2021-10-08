@@ -26,16 +26,16 @@ const Title = styled.p`
 `
 
 const Info = styled.div`
-  height: 300px;
-  width: 847px;
+  height: 450px;
+  width: 600px;
   margin: 30px auto;
   display: flex;
   box-shadow: 0px 1px 10px 1px rgb(201, 201, 201);
 
   @media (max-width: 1200px) {
-    width: 370px;
+    width: 90%;
     height: 500px;
-    padding-right: 20px;
+    padding : 0;
     box-sizing: border-box;
   }
 `
@@ -58,6 +58,7 @@ const Card = styled.div`
 
 const Name = styled.div`
   display: flex;
+  justify-content: center;
   margin-bottom: 30px;
   @media (max-width: 1200px) {
     width: 100%;
@@ -125,39 +126,35 @@ const Description = styled.div`
   padding-bottom: 5px;
 `
 
-const BottomContents = styled.div`
+const BottomWrap = styled.div`
   display: flex;
+  margin : 15px;
   @media (max-width: 1200px) {
     flex-direction: column;
   }
 `
 
-const CreateDate = styled.div`
-  width: 20%;
-  padding: 12px;
+const BottomContent = styled.div`
+  width : 75px;
+  margin-top : 5px;
   @media (max-width: 1200px) {
     width: 100%;
     order: 2;
   }
 `
 
-const Email = styled.div`
-  padding: 12px;
-  width: 30%;
-  @media (max-width: 1200px) {
-    width: 100%;
-    order: 3;
-  }
-`
-
 const BtnWrap = styled.div`
   display: flex;
   flex-direction: column;
-  width: 20%;
+  width: 150px;
+
+  position: absolute;
+  margin-left: 445px;
   @media (max-width: 1200px) {
     padding: 2px 10px 0 0;
     width: 40%;
     height: 80px;
+    margin-left : 230px;
   }
 `
 
@@ -187,8 +184,9 @@ const ReviseBtn = styled.div`
 `
 
 const ReviseText = styled.div`
-  font-size: 15px;
+  font-size: 11px;
   margin-right: 10px;
+  margin-top : 5px;
   display: none;
   color: rgb(243, 200, 18);
 `
@@ -217,7 +215,7 @@ const Input = styled.input`
 `
 
 const Textarea = styled.textarea`
-  width: 341px;
+  width: 273px;
   height: 70px;
   align-items: center;
   padding: 5px 10px 10px 10px;
@@ -239,7 +237,7 @@ const Textarea = styled.textarea`
   }
 `
 const NoTextarea = styled.div`
-  width: 341px;
+  width: 273px;
   height: 70px;
   align-items: center;
   padding: 5px 10px 10px 10px;
@@ -272,9 +270,8 @@ export { Contents,
   DescriptionButton,
   Fixed,
   Description,
-  BottomContents,
-  CreateDate,
-  Email,
+  BottomWrap,
+  BottomContent,
   BtnWrap,
   ReviseForm,
   ReviseBtn,
