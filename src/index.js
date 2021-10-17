@@ -1,12 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './app';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
+import App from './app'
+import { AuthContextProvider } from './Context/authContext'
+import { UserContextProvider } from './Context/userContext'
+import { SearchValueContextProvider } from './Context/searchValueContext'
+import { AccessTokenContextProvider } from './Context/accessTokenContext'
 
 ReactDOM.render(
-  
-    <App />,
+  <AuthContextProvider>
+    <AccessTokenContextProvider>
+      <UserContextProvider>
+        <SearchValueContextProvider>
+            <App />
+        </SearchValueContextProvider>
+      </UserContextProvider>
+    </AccessTokenContextProvider>
+  </AuthContextProvider>,
   document.getElementById('root')
+  
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -1,7 +1,18 @@
 import React from 'react';
 
-const Favorite = (props) => (
-            <h1>Favorite</h1>
-    );
+import { NavLink } from "react-router-dom";
+
+const Favorite = (props) => {
+
+  return (
+    <div>
+      <NavLink>Favorite</NavLink>
+
+    </div>
+
+  )
+};
+
+
 
 export default Favorite;
